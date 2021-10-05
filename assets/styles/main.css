@@ -1,0 +1,90 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+body,
+html {
+  height: 100vh;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 93 93' fill-opacity='0.15'%3E%3Cpath transform='translate(12 12)' d='M8 18h-.4c-.9 0-1.6-.7-1.6-1.6v-2.9C6 12 5.1 12 4.5 12c.6 0 1.5 0 1.5-1.5V7.6C6 6.7 6.7 6 7.6 6H8c.6 0 1-.4 1-1s-.4-1-1-1h-.4C5.6 4 4 5.6 4 7.6v2.9c0 .4-.3.7-.7.6-.7-.3-1.3.2-1.3.9s.6 1.2 1.3 1c.4-.2.7.1.7.5v2.9c0 2 1.6 3.6 3.6 3.6H8c.6 0 1-.4 1-1s-.4-1-1-1zM16 6h.4c.9 0 1.6.7 1.6 1.6v2.9c0 1.5.9 1.5 1.5 1.5-.6 0-1.5 0-1.5 1.5v2.9c0 .9-.7 1.6-1.6 1.6H16c-.6 0-1 .4-1 1s.4 1 1 1h.4c2 0 3.6-1.6 3.6-3.6v-2.9c0-.4.3-.7.7-.6.7.2 1.3-.3 1.3-1s-.6-1.2-1.3-1c-.3.1-.7-.2-.7-.6V7.4c0-2-1.6-3.6-3.6-3.6H16c-.6 0-1 .4-1 1 0 .8.4 1.2 1 1.2z' %3E%3C/path%3E%3Cpath transform='translate(57 12) scale(0.5)' d='M 43.335938 4 L 6.667969 4 C 5.195313 4 4 5.195313 4 6.667969 L 4 43.332031 C 4 44.804688 5.195313 46 6.667969 46 L 43.332031 46 C 44.804688 46 46 44.804688 46 43.335938 L 46 6.667969 C 46 5.195313 44.804688 4 43.335938 4 Z M 27 36.183594 C 27 40.179688 24.65625 42 21.234375 42 C 18.140625 42 15.910156 39.925781 15 38 L 18.144531 36.097656 C 18.75 37.171875 19.671875 38 21 38 C 22.269531 38 23 37.503906 23 35.574219 L 23 23 L 27 23 Z M 35.675781 42 C 32.132813 42 30.121094 40.214844 29 38 L 32 36 C 32.816406 37.335938 33.707031 38.613281 35.589844 38.613281 C 37.171875 38.613281 38 37.824219 38 36.730469 C 38 35.425781 37.140625 34.960938 35.402344 34.199219 L 34.449219 33.789063 C 31.695313 32.617188 29.863281 31.148438 29.863281 28.039063 C 29.863281 25.179688 32.046875 23 35.453125 23 C 37.878906 23 39.621094 23.84375 40.878906 26.054688 L 37.910156 27.964844 C 37.253906 26.789063 36.550781 26.328125 35.453125 26.328125 C 34.335938 26.328125 33.628906 27.039063 33.628906 27.964844 C 33.628906 29.109375 34.335938 29.570313 35.972656 30.28125 L 36.925781 30.691406 C 40.171875 32.078125 42 33.496094 42 36.683594 C 42 40.117188 39.300781 42 35.675781 42 Z' %3E%3C/path%3E%3Cpath transform='translate(12 57) scale(0.5)' d='M45,4H5C4.447,4,4,4.448,4,5v40c0,0.552,0.447,1,1,1h40c0.553,0,1-0.448,1-1V5C46,4.448,45.553,4,45,4z M29,26.445h-5V42h-4	V26.445h-5V23h14V26.445z M30.121,41.112v-4.158c0,0,2.271,1.712,4.996,1.712c2.725,0,2.62-1.782,2.62-2.026	c0-2.586-7.721-2.586-7.721-8.315c0-7.791,11.25-4.717,11.25-4.717l-0.14,3.704c0,0-1.887-1.258-4.018-1.258s-2.9,1.013-2.9,2.096	c0,2.795,7.791,2.516,7.791,8.141C42,44.955,30.121,41.112,30.121,41.112z' %3E%3C/path%3E%3Cpath transform='translate(57 57)' d='M2.6 12.7c-.4-.4-.4-1 0-1.4l4.7-4.7c.4-.4.4-1 0-1.4s-1-.4-1.4 0L.7 10.4c-.9.9-.9 2.3 0 3.2l5.2 5.2c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4l-4.7-4.7zM23.3 10.4l-5.2-5.2c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4.7 4.7c.4.4.4 1 0 1.4l-4.7 4.7c-.4.4-.4 1 0 1.4s1 .4 1.4 0l5.2-5.2c.9-.9.9-2.3 0-3.2zM14.7 3.9c-.5-.2-1.1.1-1.3.6L8.6 18.8c-.2.5.1 1.1.6 1.3.5.2 1.1-.1 1.3-.6l4.8-14.3c.2-.5 0-1.1-.6-1.3z' %3E%3C/path%3E%3C/svg%3E");
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 5px lightgray;
+  width: 70%;
+  height: 400px;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  padding: 16px;
+  text-align: center;
+}
+
+main > * {
+  height: 100%;
+}
+
+h1 {
+  margin-bottom: 8px;
+}
+
+#introduction-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  color: black;
+}
+
+#profile-photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+#profile-photo-outline {
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px lightgray;
+}
+
+#profile-photo {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (min-width: 650px) {
+  main {
+    width: 600px;
+    height: 300px;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 2fr;
+  }
+}
