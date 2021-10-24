@@ -1,3 +1,13 @@
+:root {
+  --green: rgb(52, 198, 72);
+  --red: rgb(252, 96, 92);
+  --yellow: rgb(252, 187, 64);
+
+  --dark-green: rgb(9, 97, 11);
+  --dark-red: rgb(152, 5, 13);
+  --dark-yellow: rgb(176, 111, 29);
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -22,28 +32,34 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: rgb(32, 32, 33);
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(32, 32, 33);
+  color: white;
 }
 
 main {
   z-index: 1;
-  border-radius: 8px;
-  background-color: rgb(41, 41, 43);
-  box-shadow: 0px 5px 14px rgb(27, 27, 28);
+  display: flex;
+  flex-direction: column;
   width: 70%;
   height: 400px;
-  display: grid;
-  grid-template-rows: 1fr 2fr;
-  padding: 16px;
-  text-align: center;
+  border-radius: 12px;
+  background-color: rgb(41, 41, 43);
+  box-shadow: 0px 5px 14px rgb(27, 27, 28);
 }
 
 h1 {
   margin-bottom: 8px;
+}
+
+#content {
+  flex: auto;
+  padding: 16px;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  text-align: center;
 }
 
 #background-wallpaper {
@@ -56,14 +72,22 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px;
+}
+
+#menu-bar {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding-left: 12px;
+  background-color: rgb(36, 36, 36);
 }
 
 #profile-photo-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 16px;
 }
 
 #profile-photo-outline {
@@ -82,10 +106,65 @@ h1 {
   height: 100px;
 }
 
+.menu-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.icon {
+  height: 50%;
+  width: 50%;
+  fill: currentColor; /* paths */
+  stroke: currentColor; /* lines */
+}
+
+.menu-button .icon {
+  position: absolute;
+  display: none;
+}
+
+.menu-button:hover .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-button + .menu-button {
+  margin-left: 6px;
+}
+
+.red {
+  background-color: var(--red);
+  color: var(--dark-red);
+}
+
+.yellow {
+  background-color: var(--yellow);
+  color: var(--dark-yellow);
+}
+
+.green {
+  background-color: var(--green);
+  color: var(--dark-green);
+}
+
 @media screen and (min-width: 650px) {
   main {
     width: 600px;
     height: 300px;
+  }
+
+  #content {
     grid-template-rows: none;
     grid-template-columns: 1fr 2fr;
   }
