@@ -40,6 +40,7 @@ body {
 }
 
 main {
+  position: absolute;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -48,6 +49,10 @@ main {
   border-radius: 12px;
   background-color: rgb(41, 41, 43);
   box-shadow: 0px 5px 14px rgb(27, 27, 28);
+
+  transition: width 2s, height 2s, transform 2s;
+  /* transition: width 2s, height 2s, top 2s, left 2s, transform 2s; */
+  /* transition: all 2s; */
 }
 
 h1 {
@@ -60,6 +65,8 @@ h1 {
   display: grid;
   grid-template-rows: 1fr 2fr;
   text-align: center;
+
+  transition: padding 2s, transform 2s;
 }
 
 #background-wallpaper {
@@ -72,6 +79,9 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 1;
+
+  transition: height 1s, opacity 1s, transform 1s;
 }
 
 #menu-bar {
@@ -82,12 +92,16 @@ h1 {
   border-top-right-radius: 12px;
   padding-left: 12px;
   background-color: rgb(36, 36, 36);
+
+  transition: height 2s, opacity 2s;
 }
 
 #profile-photo-container {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: padding 2s, transform 2s;
 }
 
 #profile-photo-outline {
@@ -104,6 +118,42 @@ h1 {
   border-radius: 50%;
   width: 100px;
   height: 100px;
+}
+
+#window.minimized {
+  cursor: pointer;
+  overflow: hidden;
+
+  width: 112px;
+  height: 112px;
+}
+
+#window.minimized > #menu-bar {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+#window.minimized #introduction-container {
+  height: 0;
+  opacity: 0;
+}
+
+#window.minimized #content {
+  padding: 0;
+}
+
+#window.minimized #profile-photo-container {
+  transform: scale(0.75);
+}
+
+#window.maximized {
+  width: 100vw;
+  height: 100vh;
+}
+
+button {
+  transition: height 2s, opacity 2s;
 }
 
 .menu-button {
