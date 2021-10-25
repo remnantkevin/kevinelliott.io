@@ -10,11 +10,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="assets/styles/main.css" />
+    <script defer src="js/resizeWindow.js"></script>
+    <script defer src="js/moveWindow.js"></script>
   </head>
   <body>
-    <main>
+    <main id="window">
       <div id="menu-bar">
-        <button class="menu-button red">
+        <button id="close-window" class="menu-button red">
           <svg
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +40,7 @@
             />
           </svg>
         </button>
-        <button class="menu-button yellow">
+        <button id="minimize-window" class="menu-button yellow">
           <svg
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +56,7 @@
             />
           </svg>
         </button>
-        <button class="menu-button green">
+        <button id="maximize-window" class="menu-button green">
           <svg
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
