@@ -8,14 +8,12 @@
   --dark-yellow: rgb(176, 111, 29);
 }
 
-/* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default margin */
 body,
 h1,
 h2,
@@ -23,6 +21,13 @@ h3,
 h4,
 p {
   margin: 0;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: inherit;
 }
 
 body,
@@ -36,7 +41,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgb(32, 32, 33);
-  color: white;
+  color: #bdbdbd;
 }
 
 main {
@@ -56,6 +61,10 @@ main {
 }
 
 h1 {
+  margin-bottom: 16px;
+}
+
+p {
   margin-bottom: 8px;
 }
 
@@ -64,7 +73,6 @@ h1 {
   padding: 16px;
   display: grid;
   grid-template-rows: 1fr 2fr;
-  text-align: center;
 
   transition: padding 2s, transform 2s;
 }
@@ -100,6 +108,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   transition: padding 2s, transform 2s;
 }
@@ -120,6 +129,33 @@ h1 {
   height: 100px;
 }
 
+#social-icons {
+  display: flex;
+  margin-top: 8px;
+  height: 32px;
+
+  transition: height 2s, opacity 2s;
+}
+
+#social-icons > .social-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#social-icons > .social-icon-container + .social-icon-container {
+  margin-left: 8px;
+}
+
+.social-icon-container * {
+  width: 24px;
+  height: 24px;
+}
+
+#social-icons .icon:hover {
+  color: rgb(199, 132, 255);
+}
+
 #window.minimized {
   cursor: pointer;
   overflow: hidden;
@@ -129,6 +165,12 @@ h1 {
 }
 
 #window.minimized > #menu-bar {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+#window.minimized #social-icons {
   height: 0;
   opacity: 0;
   overflow: hidden;
@@ -156,8 +198,18 @@ button {
   transition: height 2s, opacity 2s;
 }
 
+a.text-link {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: rgb(199, 132, 255);
+}
+
+a.text-link:hover {
+  text-decoration-style: solid;
+  color: rgb(199, 132, 255);
+}
+
 .menu-button {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,21 +224,18 @@ button {
 }
 
 .icon {
-  height: 50%;
-  width: 50%;
-  fill: currentColor; /* paths */
-  stroke: currentColor; /* lines */
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .menu-button .icon {
-  position: absolute;
   display: none;
+  height: 50%;
+  width: 50%;
 }
 
 .menu-button:hover .icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
 }
 
 .menu-button + .menu-button {
@@ -210,8 +259,8 @@ button {
 
 @media screen and (min-width: 650px) {
   main {
-    width: 600px;
-    height: 300px;
+    width: 700px;
+    height: 400px;
   }
 
   #content {
