@@ -42,6 +42,7 @@ body {
   align-items: center;
   background-color: rgb(32, 32, 33);
   color: #bdbdbd;
+  line-height: 22px;
 }
 
 main {
@@ -201,12 +202,13 @@ button {
 a.text-link {
   text-decoration-line: underline;
   text-decoration-style: dashed;
-  text-decoration-color: rgb(199, 132, 255);
+  text-decoration-color: rgb(59, 93, 222);
+  text-decoration-thickness: 2px;
 }
 
 a.text-link:hover {
   text-decoration-style: solid;
-  color: rgb(199, 132, 255);
+  color: rgb(59, 93, 222);
 }
 
 .menu-button {
@@ -223,12 +225,21 @@ a.text-link:hover {
   cursor: pointer;
 }
 
+.logo {
+  width: 16px;
+  height: 16px;
+}
+
+.logo + .logo {
+  margin-left: 4px;
+}
+
 .icon {
   fill: currentColor;
-  stroke: currentColor;
 }
 
 .menu-button .icon {
+  stroke: currentColor;
   display: none;
   height: 50%;
   width: 50%;
