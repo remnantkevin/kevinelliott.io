@@ -280,8 +280,7 @@ a.text-link:hover {
 .logo--mobiz {
   height: var(--logo-size);
   width: auto;
-  margin-left: 2px;
-  margin-bottom: -2px;
+  margin: 0 0 -2px;
 }
 
 .icon {
