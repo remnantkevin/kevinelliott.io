@@ -1,11 +1,41 @@
 :root {
+  /*
+    Colours
+  */
+
   --green: rgb(52, 198, 72);
   --red: rgb(252, 96, 92);
   --yellow: rgb(252, 187, 64);
 
-  --dark-green: rgb(9, 97, 11);
-  --dark-red: rgb(152, 5, 13);
-  --dark-yellow: rgb(176, 111, 29);
+  --green-dark: rgb(9, 97, 11);
+  --red-dark: rgb(152, 5, 13);
+  --yellow-dark: rgb(176, 111, 29);
+
+  /*
+    Sizes
+  */
+
+  --virtual-window-height: 500px;
+  --virtual-window-width: 80%;
+  --virtual-window-tray-icon-size: 112px;
+  --virtual-window-border-radius: 12px;
+
+  --menu-bar-height: 32px;
+  --menu-bar-button-size: 12px;
+  --menu-bar-button-space-between: 6px;
+
+  --content-height: calc(var(--virtual-window-height) - var(--menu-bar-height));
+
+  --social-icons-height: 32px;
+
+  --social-icon-space-between: 8px;
+
+  --logo-size: 20px;
+  --logo-space-between: 4px;
+
+  --profile-photo-border-radius: 50%;
+  --profile-photo-size: 100px;
+  --profile-photo-outline-size: calc(var(--profile-photo-size) + 10px);
 }
 
 *,
@@ -48,17 +78,13 @@ body {
 main {
   position: absolute;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  height: 400px;
-  border-radius: 12px;
+  width: var(--virtual-window-width);
+  height: var(--virtual-window-height);
+  border-radius: var(--virtual-window-border-radius);
   background-color: rgb(41, 41, 43);
   box-shadow: 0px 5px 14px rgb(27, 27, 28);
 
   transition: width 2s, height 2s, transform 2s;
-  /* transition: width 2s, height 2s, top 2s, left 2s, transform 2s; */
-  /* transition: all 2s; */
 }
 
 h1 {
@@ -70,10 +96,9 @@ p {
 }
 
 #content {
-  flex: auto;
-  padding: 16px;
-  display: grid;
-  grid-template-rows: 1fr 2fr;
+  height: var(--content-height);
+  overflow-y: scroll;
+  padding: 16px 32px;
 
   transition: padding 2s, transform 2s;
 }
@@ -96,9 +121,9 @@ p {
 #menu-bar {
   display: flex;
   align-items: center;
-  height: 32px;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  height: var(--menu-bar-height);
+  border-top-left-radius: var(--virtual-window-border-radius);
+  border-top-right-radius: var(--virtual-window-border-radius);
   padding-left: 12px;
   background-color: rgb(36, 36, 36);
 
@@ -107,17 +132,17 @@ p {
 
 #profile-photo-container {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 16px;
 
   transition: padding 2s, transform 2s;
 }
 
 #profile-photo-outline {
-  border-radius: 50%;
-  width: 110px;
-  height: 110px;
+  border-radius: var(--profile-photo-border-radius);
+  width: var(--profile-photo-outline-size);
+  height: var(--profile-photo-outline-size);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,15 +150,15 @@ p {
 }
 
 #profile-photo {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  border-radius: var(--profile-photo-border-radius);
+  width: var(--profile-photo-size);
+  height: var(--profile-photo-size);
 }
 
 #social-icons {
   display: flex;
   margin-top: 8px;
-  height: 32px;
+  height: var(--social-icons-height);
 
   transition: height 2s, opacity 2s;
 }
@@ -145,24 +170,35 @@ p {
 }
 
 #social-icons > .social-icon-container + .social-icon-container {
-  margin-left: 8px;
+  margin-left: var(--social-icon-space-between);
 }
 
 .social-icon-container * {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
-#social-icons .icon:hover {
-  color: rgb(199, 132, 255);
+.social-icon-container a:hover {
+  color: rgb(230, 230, 230);
+}
+
+#technologies {
+  max-width: 300px;
+
+  transition: max-width 2s;
+}
+
+#technologies > .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 #window.minimized {
+  width: var(--virtual-window-tray-icon-size);
+  height: var(--virtual-window-tray-icon-size);
   cursor: pointer;
   overflow: hidden;
-
-  width: 112px;
-  height: 112px;
 }
 
 #window.minimized > #menu-bar {
@@ -184,6 +220,8 @@ p {
 
 #window.minimized #content {
   padding: 0;
+  height: var(--virtual-window-tray-icon-size);
+  overflow: hidden;
 }
 
 #window.minimized #profile-photo-container {
@@ -195,13 +233,21 @@ p {
   height: 100vh;
 }
 
+#window.maximized #content {
+  height: unset;
+  max-height: 100%;
+}
+
+#window.maximized #technologies {
+  max-width: 100%;
+}
+
 button {
   transition: height 2s, opacity 2s;
 }
 
 a.text-link {
   text-decoration-line: underline;
-  text-decoration-style: dashed;
   text-decoration-color: rgb(59, 93, 222);
   text-decoration-thickness: 2px;
 }
@@ -215,8 +261,8 @@ a.text-link:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 12px;
-  height: 12px;
+  width: var(--menu-bar-button-size);
+  height: var(--menu-bar-button-size);
   padding: 0;
   margin: 0;
   background: none;
@@ -226,12 +272,16 @@ a.text-link:hover {
 }
 
 .logo {
-  width: 16px;
-  height: 16px;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  margin: 4px;
 }
 
-.logo + .logo {
-  margin-left: 4px;
+.logo--mobiz {
+  height: var(--logo-size);
+  width: auto;
+  margin-left: 2px;
+  margin-bottom: -2px;
 }
 
 .icon {
@@ -250,31 +300,38 @@ a.text-link:hover {
 }
 
 .menu-button + .menu-button {
-  margin-left: 6px;
+  margin-left: var(--menu-bar-button-space-between);
 }
 
 .red {
   background-color: var(--red);
-  color: var(--dark-red);
+  color: var(--red-dark);
 }
 
 .yellow {
   background-color: var(--yellow);
-  color: var(--dark-yellow);
+  color: var(--yellow-dark);
 }
 
 .green {
   background-color: var(--green);
-  color: var(--dark-green);
+  color: var(--green-dark);
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 750px) {
+  :root {
+    --virtual-window-height: 450px;
+    --virtual-window-width: 700px;
+  }
+
   main {
-    width: 700px;
-    height: 400px;
+    height: var(--virtual-window-height);
+    width: var(--virtual-window-width);
   }
 
   #content {
+    padding: 32px 32px 32px 0;
+    display: grid;
     grid-template-rows: none;
     grid-template-columns: 1fr 2fr;
   }
