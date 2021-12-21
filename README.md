@@ -1,2 +1,2 @@
 # kevinelliott.io
-Repo for my personal website
+My personal website
